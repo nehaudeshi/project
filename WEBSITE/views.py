@@ -65,4 +65,6 @@ def login(request):
 
 
    # print(auth.child().reg_type)
+
     return render(request,'homepage.html',{'e':email})
+
