@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<style type="text/css">
+		body{
+			padding-top: 70px;
+		}
+		.details{
+			margin:20px 30px;
+			font-size: 20px;
+			color: #5894C3;
+		}
+		.tab{
+			border:1px solid black;
+			margin:20px 40px;
+			padding-bottom: 20px;
+    		background: rgba(0, 0, 0, 0.1);
+		}
+		label{
+			margin: 20px 6px;
+			padding-left: 50px;
+    		width: 250px;
+		}
+
+		i,.tab button{
+			margin-left:25px;
+		}
+		input:not(#savebtn){
+			border-radius: 5px;
+			height: 40px;
+			padding: 5px;
+			width:25%;
+			margin-right: 20px;
+		}
+		#skill, #projects {
+			text-align: center;
+			list-style-type: none;
+		}
+	</style>
+	<script type="text/javascript">
+		var skills = [];
+		function AddSkill() {
+			var skill="";
+			skills.push(document.querySelector("#skills").value);
+			for (var i = 0; i < skills.length; i++) {
+			skill+="<li>"+skills[i]+"</li>\n";
+			}
+			document.querySelector("#skill").innerHTML = skill ;
+			document.querySelector("#skills").value="";
+			}
+		var projects = []
+		function AddProj() {
+			var proj="";
+			projects.push(document.querySelector("#proj").value);
+			for (var i = 0; i < projects.length; i++) {
+			proj+="<li>"+projects[i]+"</li>\n";
+			}
+			document.querySelector("#projects").innerHTML = proj ;
+			document.querySelector("#proj").value="";
+			}
+		function AddAchievement(){
+			document.querySelector("#achieve").innerHTML = "<i class='fas fa-check'></i><b>&nbsp;Added</b>";
+			document.querySelector("#certi").value = "";
+			document.querySelector("#rank").value = "";
+			document.querySelector("#Institute").value = "";
+			document.querySelector("#describe").value = "";
+		}
+		function AddExtra(){
+			document.querySelector("#extra").innerHTML = "<i class='fas fa-check'></i><b>&nbsp;Added</b>";
+			document.querySelector("#course").value = "";
+			document.querySelector("#inst").value = "";
+			document.querySelector("#from").value = "";
+			document.querySelector("#to").value = "";
+		}
+		function remove(){
+			document.querySelector("#achieve").innerHTML = "";
+			document.querySelector("#extra").innerHTML = "";
+		}
+
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class= "box-main">
+			<form id="regForm" action="/action_page.php">
+			  <h1 style="text-align: center;">EDIT PROFILE</h1>
+			  <!-- One "tab" for each step in the form: -->
+			  <div class="tab">
+			    <h3 class="details">PERSONAL DETAILS</h3>
+			    <label>Name:</label>
+			    <input placeholder="Enter your First name"  name="fname">
+			    <input placeholder=" Enter your Last name"  name="lname">
+			    <br>
+			    <label>SAP ID:</label>
+			    <input placeholder="Enter your SAP ID"  name="sap">
+			    <br>
+			    <label>Contact Info:</label>
+			    <input placeholder="Enter your E-mail"  name="email">
+			    <input placeholder="Enter your Phone"  name="phone">
+			    <br>
+			    <label>Birthday:</label>
+			    <input type="date"  name="dob">
+			    <br>
+			  </div>
+			  <div class="tab">
+			    <h3 class="details">ACADEMIC DETAILS</h3>
+			    <label>10th:</label>
+			    <input placeholder="Enter your School Name"  name="school">
+			    <br>
+			    <label>12th/Diploma:</label>
+			    <input placeholder="Enter the Institute Name"  name="college">
+			  </div>
+			  <div class="tab">
+			    <h3 class="details">EXTRACURRICULAR</h3>
+			    <i>Enter courses/workshops you have attended here!</i><br/><br/>
+			   <label> Course name:</label>
+			    <input placeholder="Enter the Course" id="course" name="course" onfocus="remove()">
+			    <br>
+			    <label>Institute name:</label>
+			    <input placeholder="Enter your Institute Name" id="inst" name="inst">
+			    <br>
+			    <label>From: </label><input type="date" id="from" name="">
+			    <br>
+			    <label>To:</label> <input type="date" id="to" name="">
+			    <br>
+			    <br>
+			    <button type="button" id="addcourse" class="btn btn-primary" onclick="AddExtra()">ADD</button>
+			    <span style="margin:30px;" id="extra"></span>
+			  </div>
+			  <div class="tab">
+			    <h3 class="details">ACHIEVEMENTS</h3>
+			    <i>"Showoff your achievements"</i><br/><br/>
+			    <label>Name of Certificate:</label>
+			    <input placeholder="Name" id="certi" name="certi" required onfocus="remove()">
+			    <br>
+			    <label>Rank:</label>
+			    <input placeholder="Rank" id="rank" name="rank">
+			    <br>
+			    <label>Institute name:</label>
+			    <input placeholder="Institute Name" id="Institute" name="Institute" required >
+			    <input placeholder="Description" id="describe" name ="describe">
+			    <br>
+			    <br>
+			    <button type="button" id="addcerti" class="btn btn-primary" onclick="AddAchievement()">ADD</button>
+			    <span style="margin:30px;" id="achieve"></span>
+			  </div>
+			  <div class="tab">
+			  <h3 class="details">PERSONAL DEVELOPMENT</h3>
+		      <i>"Potray your skills and back them by displaying you projects!"</i><br/><br/>
+		      <table>
+		      <tr>
+		      <td>
+		      <label>SKILLS:</label>
+		      <input placeholder="Skills" id="skills" name="skills" >
+		  	  </td>
+		  	  <td>
+		  	  <label>PROJECTS:</label>
+		      <input placeholder="Project link" id="proj" name="proj">
+		  	  </td>
+		  	  </tr>
+		  	  <tr>
+		  	  	<td><button type="button" id="addskill" class="btn btn-primary" style="float: right" onclick="AddSkill()">ADD</button><br/><br/></td>
+		      	<td><button type="button" id="addproj" class="btn btn-primary" style="float: right" onclick="AddProj()">ADD</button><br/><br/></td>
+		      </tr>
+		      <tr>
+		      	<td>
+		      		<ul id="skill">
+		      		</ul>
+		      	</td>
+		      	<td>
+		      		<ul id="projects">
+		      		</ul>
+		      	</td>
+		      </tr>
+		      <table>
+			  </div>
+			  <div style="overflow:auto;">
+			      <input type="reset" class="btn btn-success" style="margin-left: 920px; margin-top: 50px;" value="Save" id="savebtn"></input>
+			  </div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

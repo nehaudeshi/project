@@ -1,0 +1,37 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <div class= "box-main">
+			<nav class="navbar navbar-default box-nav">
+			  	<div class="container">
+			    	<ul class="nav navbar-nav">
+				      <li class="active"><a href="{% url 'Library:tech' %}">TECHNOLOGY</a></li>
+				      <li><a href="{% url 'Library:chem' %}">CHEMICAL</a></li>
+				      <li><a href="{% url 'Library:bio' %}">BIOMEDICAL</a></li>
+				      <li><a href="{% url 'Library:mech' %}">MECHANICAL</a></li>
+				      <li><a href="{% url 'Library:elec' %}">ELECTRONICS</a></li>
+			    	</ul>
+			 	</div>
+			</nav>
+			<div class="inner-addon">
+    			<i class="fas fa-search left-addon"></i>
+    			<span><a href="#"><i class="fas fa-arrow-right right-addon"></i></a></span>
+    			<input type="text" name="search_lib" placeholder=" Search book by name..." style="margin-left: 30px; border-radius: 2px; padding:5px 30px;">
+			</div>
+			<div class="row">
+  				<div class="col-xs-6 col-sm-3">
+                    {% for book in books %}
+  					<div class="col">
+			  			<img src="{{ book.icon.url }}" width="60" height="80">
+			  			<h4><strong>{{ book.book_name }}</strong></h4>
+			  			<h4 style="color:#9EA6BB;">{{ book.book_author }}</h4>
+                        <h4 style="color:#9EA6BB;">Copies :{{ book.copies }}</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+			  			<button type="submit" class="btn btn-primary btn-lg">Issue</button>
+                        </form>
+  					</div>
+                    {% endfor %}
+  				</div>
+
+			</div>
+{% endblock %}
