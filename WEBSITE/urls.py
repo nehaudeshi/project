@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Library/',include('Library.urls')),
     #path('Accounts/',include('Accounts.urls')),
-    path('homepage/',views.homepage,name="homepage"),
+    path('',views.homepage,name="homepage"),
     path('login/',views.login, name="login"),
     path('Student/',include('Students.urls')),
     path('Teachers/',include('Teachers.urls')),

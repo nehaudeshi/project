@@ -32,10 +32,10 @@ def homepage(request):
         if reg_type=="student":
             database.child("students").child(uid).set(data)
             #print("kk")
-            return render(request,'Students/main_profile.html')
+            return render(request,'Students/main_profile.html',data)
         elif reg_type=="teacher":
             database.child("teacher").child(uid).set(data)
-            return  render(request,'Teachers/mainpage.html')
+            return  render(request,'Teachers/mainpage.html',data)
         else:
             database.child("alumni").child(uid).set(data)
         #ssif reg_type=='teacher':
