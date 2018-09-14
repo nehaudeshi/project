@@ -46,10 +46,12 @@ def login(request):
     psw2=request.POST.get("password")
     email=request.POST.get("email")
     user=auth.sign_in_with_email_and_password(email,psw2)
-    for uid in database.child().shallow().get().each():
+    #request.POST(uid)
+    print(uid)
+    '''for uid in database.child().shallow().get().each():
         if database.child().child("password")==psw2 and database.child().child("email")==email:
             print(uid)
 
 
-    
+    '''
     return render(request,'homepage.html')
