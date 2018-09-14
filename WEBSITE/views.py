@@ -22,20 +22,21 @@ def homepage(request):
         reg_type= request.POST.get("reg_type")
         email= request.POST.get("email")
         dept=request.POST.get("dept")
+
         #print(uname+" "+reg_type+" "+email)
         user=auth.create_user_with_email_and_password(email,psw2)
 
         uid= user['localId']
 
-        data={"username":uname,"email":email,"dept":dept,"password":psw2}
+        data={"username":uname,"email":email,"dept":dept,"password":psw2,"type":reg_type}
         #print("k")
         if reg_type=="student":
             database.child("students").child(uid).set(data)
             #print("kk")
-            return render(request,'Students/main_profile.html')
+            return render(request,'Students/main_profile.html',data)
         elif reg_type=="teacher":
             database.child("teacher").child(uid).set(data)
-            return  render(request,'Teachers/mainpage.html')
+            return  render(request,'Teachers/mainpage.html',data)
         else:
             database.child("alumni").child(uid).set(data)
         #ssif reg_type=='teacher':
@@ -43,15 +44,25 @@ def homepage(request):
     return render(request,'homepage.html')
 def login(request):
     uname=request.POST.get("username")
-    psw2=request.POST.get("password")
+    psw2=request.POST.get("psw")
     email=request.POST.get("email")
     user=auth.sign_in_with_email_and_password(email,psw2)
-    #request.POST(uid)
-    print(uid)
-    '''for uid in database.child().shallow().get().each():
-        if database.child().child("password")==psw2 and database.child().child("email")==email:
-            print(uid)
+
+    print(user['idToken'])
 
 
-    '''
-    return render(request,'homepage.html')
+    session_id=user['idToken']
+
+
+    request.session['uid']=str(session_id)
+    #user = auth.User
+    #print(user.localId)
+
+    #return render(request, "welcome.html")
+    '''for email in database.child().shallow().get().each():
+        if database.child().child("email")==email:'''
+             
+
+
+   # print(auth.child().reg_type)
+    return render(request,'homepage.html',{'e':email})
