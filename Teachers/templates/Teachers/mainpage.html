@@ -1,9 +1,9 @@
-{% extends 'base_layout.html' %}
+{% extends 'Teachers/base_teach.html' %}
 {%  load static from staticfiles %}
 
 {% block content %}
 	<div class="container">
-		<a style="text-decoration: none;" href="teacher_edprof.html"><button type="button" class="btn btn-danger" style="float: right;"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="padding-right:5px;"></span> Edit Profile</button></a>
+		<a style="text-decoration: none;" href="{% url 'Teachers:editprofile' %}"><button type="button" class="btn btn-danger" style="float: right;" ><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="padding-right:5px;"></span> Edit Profile</button></a>
 		<br>
 		<br>
 		<br>
@@ -15,7 +15,7 @@
 			<div class="box-der red">
 				<strong class="head"><u>About me</u></strong>
 				<div class="desc">
-					Detail1
+					{{ data.email}}
 					<br>
 					Detail2
 					<span style="float:right; margin-right: 10px;"><a href="teacher_prof.html" style="color:black;"><i class="fas fa-trash-alt"></i></a></span>
