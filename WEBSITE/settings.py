@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     #'Accounts',
     'Library',
     'Students',
-    'Teachers'
+    'Teachers',
+    'WEBSITE'
 ]
 
 MIDDLEWARE = [

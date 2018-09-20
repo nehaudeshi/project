@@ -1,6 +1,6 @@
 __author__ = 'DELL'
 from django.shortcuts import render
-
+from .models import userid
 
 import pyrebase
 from firebase_admin import credentials
@@ -63,17 +63,23 @@ def login(request):
     for i in l:
         users=database.child(i).child(user['localId']).get()
     dataa=dict(users.val())
-    #userr=list(users.val())
+    
     
     for x,y in dataa.items():
         if(x=="type"):
-            typee=y # (user.key())
-    #d={'data':dataa}
+            typee=y 
+    
+
+    obj=userid()
+    obj.uid=user['localId']
+    obj.session_key=session_id
+    obj.save()
+    
     
     if typee=="students":
         return render(request,'Students/main_profile.html',dataa)
     elif typee=="teacher":
-        return  render(request,'Teachers/mainpage.html',{'data':user['localId']})
+        return  render(request,'Teachers/mainpage.html',{'data':dataa})
 def logout(request):
     try:
         del request.session['member_id']
