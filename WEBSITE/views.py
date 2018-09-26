@@ -49,6 +49,9 @@ def loginn(request):
                 
                 userdata=registertable.objects.get(uname=username)
                 print(userdata)
+                if request.POST.get('remember'):   
+
+                    request.session.set_expiry(180) # 2 weeks
                 if userdata.reg_type=='student':
                     return render(request,"Students/main_profile.html")
                 elif userdata.reg_type=='teacher':
