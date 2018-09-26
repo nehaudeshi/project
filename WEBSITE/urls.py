@@ -26,7 +26,8 @@ urlpatterns = [
     path('Library/',include('Library.urls')),
     #path('Accounts/',include('Accounts.urls')),
     path('',views.homepage,name="homepage"),
-    path('login/',views.login,name="login"),
+    path('login/',views.loginn,name="login"),
+    path('email/',views.email,name="email"),
     path('Student/',include('Students.urls')),
     path('Teachers/',include('Teachers.urls')),
 

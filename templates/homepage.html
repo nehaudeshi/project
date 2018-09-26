@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -280,39 +281,49 @@
 	  	<br>
 	  	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color: #337ab7; margin-right: 20px;"><i class="fas fa-users"></i>Login</button>
 		<div id="id01" class="modal">
-	  		<form class="modal-content animate" method="post" action="/login/">{% csrf_token %}
+
+
+
+<form class="modal-content animate" method="post" action="/login/">{% csrf_token %}
 	    		<div class="imgcontainer">
 	      			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 	    		</div>
 	    		<div class="container">
 		      		<label for="uname"><b>SAP ID</b></label>
 		      		<input type="text" placeholder="Enter ID" name="uname" required>
-		      		<label for="email"><b>EMAIL</b></label>
-		      		<input type="text" placeholder="Enter Email" name="email" required>
+		      		
 		      		<label for="psw"><b>Password</b></label>
 		     		<input type="password" placeholder="Enter Password" name="psw" required>
 				    <button type="submit">Login</button>
 				    <label style="color:black;">
-				    	<input type="checkbox" checked="checked" name="remember"> Remember me
+				    	<input type="checkbox" checked="checked" name="remember" value="true"> Remember me
 				    </label>
 	    		</div>
 	    		<div class="container" style="background-color:#f1f1f1">
 	     			<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-	      			<span class="psw"><a href="#">Forgot password?</a></span>
+	      			<span class="psw"><a href="{% url 'email' %}">Forgot password?</a></span>
 	    		</div>
 	  		</form>
 		</div>
 		<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; background-color: #337ab7; margin-right: 20px;"><i class="fas fa-user-plus"></i>Register</button>
 		<div id="id02" class="modal">
 	  		<form class="modal-content animate" method="post" >{% csrf_token %}
+
 	    		<div class="imgcontainer">
 	      			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
 	    		</div>
 	    		<div class="container">
 		      		<label for="uname"><b>SAP ID</b></label>
 		      		<input type="text" placeholder="Enter ID" name="uname" required>
-                    <label for="email"><b>EMAIL</b></label>
-		      		<input type="text" placeholder="Enter email" name="email" required>
+                    
+		      		<label for="email"><b>NAME</b></label>
+		      		<input type="text" placeholder="Enter Name" name="name" required>
+		      		<!--<label for="email"><b>DEPARTMENT</b></label>
+		      		<input type="text" placeholder="Enter Department" name="dept" required>
+		      		<label for="email"><b>YEAR</b></label>
+		      		<input type="text" placeholder="Enter Year" name="year" required>-->
+		      		<label for="email"><b>EMAIL</b></label>
+		      		<input type="text" placeholder="Enter Email" name="email" required>
 		      		<label for="psw"><b>Password</b></label>
 		     		<input type="password" placeholder="Enter Password" name="psw" required>
 		     		<label for="psw2"><b>Confirm Password</b></label>

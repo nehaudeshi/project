@@ -1,8 +1,17 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
-class userid(models.Model):
-    uid = models.CharField(max_length=100)
-    session_key = models.CharField(max_length=100)
+
+class registertable(models.Model):
+    uname=models.IntegerField(max_length=120)
+    name=models.CharField(max_length=300)
+    #department=models.CharField(max_length=300)
+    #year=models.IntegerField(max_length=120)
+    email=models.EmailField(max_length=120)
+    password=models.CharField(max_length=300)
+    reg_type=models.CharField(max_length=300)
+    
+
+    
     def __str__(self):
-        return self.uid
+        return u'%s %s %s %s' % (self.name,self.uname,self.email,self.reg_type)
