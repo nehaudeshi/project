@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import registertable,User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
@@ -51,11 +52,18 @@ def loginn(request):
                 print(userdata)
                 if request.POST.get('remember'):   
 
-                    request.session.set_expiry(180) # 2 weeks
-                if userdata.reg_type=='student':
-                    return render(request,"Students/main_profile.html")
-                elif userdata.reg_type=='teacher':
-                    return render(request,"Teachers/mainpage.html")
+                    #request.session.set_expiry(50)
+                    
+                    if userdata.reg_type=='student':
+                        return render(request,"Students/main_profile.html",{'userdata':userdata})
+                    elif userdata.reg_type=='teacher':
+                        return render(request,"Teachers/mainpage.html",{'userdata':userdata})
+                else:
+                    if userdata.reg_type=='student':
+                        return render(request,"Students/main_profile.html")
+                    elif userdata.reg_type=='teacher':
+                        return render(request,"Teachers/mainpage.html")
+                    return render(request,"homepage.html")
     return render(request,"homepage.html")
 def logout(request):
     try:
