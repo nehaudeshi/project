@@ -47,9 +47,9 @@ def loginn(request):
             if user.is_active:
                 login(request, user)
                 user=request.user
-                
+               # print(user)
                 userdata=registertable.objects.get(uname=username)
-                print(userdata)
+               # print(userdata)
                 if request.POST.get('remember'):   
 
                     #request.session.set_expiry(50)
@@ -75,7 +75,7 @@ def email(request):
     subject = 'Thank you for registering to our site'
     message = ' it  means a world to us '
     email_from = settings.EMAIL_HOST_USER
-    recipient_list = ['maitrithaker2@gmail.com',]
+    recipient_list = ['',]
     send_mail( subject, message, email_from, recipient_list )
     return render(request,'homepage.html')
 
