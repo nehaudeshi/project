@@ -1,5 +1,5 @@
 __author__ = 'DELL'
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import registertable,User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
+from Teachers.views import mainprofile
 def homepage(request):
     if request.method=="POST":
        
@@ -57,12 +58,12 @@ def loginn(request):
                     if userdata.reg_type=='student':
                         return render(request,"Students/main_profile.html",{'userdata':userdata})
                     elif userdata.reg_type=='teacher':
-                        return render(request,"Teachers/mainpage.html",{'userdata':userdata})
+                        return redirect(mainprofile)
                 else:
                     if userdata.reg_type=='student':
                         return render(request,"Students/main_profile.html")
                     elif userdata.reg_type=='teacher':
-                        return render(request,"Teachers/mainpage.html")
+                        return redirect('mainprofile')
                     return render(request,"homepage.html")
     return render(request,"homepage.html")
 def logout(request):
@@ -72,6 +73,9 @@ def logout(request):
         pass
     return HttpResponse("You're logged out.")
 def email(request):
+    u=user.objects.get(uname='585')
+    u.set_password('')
+    u.save()
     subject = 'Thank you for registering to our site'
     message = ' it  means a world to us '
     email_from = settings.EMAIL_HOST_USER
