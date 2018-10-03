@@ -14,8 +14,7 @@ def homepage(request):
         
         uname= request.POST.get("uname")
         name=request.POST.get("name")
-        #dept=request.POST.get("dept")
-        #year=request.POST.get("year")
+        
 
         email= request.POST.get("email")
         psw2=request.POST.get("psw2")
@@ -34,7 +33,7 @@ def homepage(request):
         if reg_type=="student":
             return render(request,'Students/main_profile.html',data)
         elif reg_type=="teacher":
-            return render(request,'Teachers/mainpage.html',data)
+            return redirect('Teachers:mainprofile')
     return render(request,'homepage.html')
 def loginn(request):
     
@@ -51,19 +50,20 @@ def loginn(request):
                # print(user)
                 userdata=registertable.objects.get(uname=username)
                # print(userdata)
-                if request.POST.get('remember'):   
-
+                if request.POST.get('remember'):
+                    
                     #request.session.set_expiry(50)
                     
                     if userdata.reg_type=='student':
                         return render(request,"Students/main_profile.html",{'userdata':userdata})
                     elif userdata.reg_type=='teacher':
-                        return redirect(mainprofile)
+                        return redirect('Teachers:mainprofile')
                 else:
+                    request.session.set_expiry(30)
                     if userdata.reg_type=='student':
                         return render(request,"Students/main_profile.html")
                     elif userdata.reg_type=='teacher':
-                        return redirect('mainprofile')
+                        return redirect('Teachers:mainprofile')
                     return render(request,"homepage.html")
     return render(request,"homepage.html")
 def logout(request):
@@ -73,13 +73,16 @@ def logout(request):
         pass
     return HttpResponse("You're logged out.")
 def email(request):
-    u=user.objects.get(uname='585')
+    uname=request.POST.get('uname')
+    u=User.objects.get(username=uname)
     u.set_password('')
     u.save()
+    uu=u.email
+    print(uu)
     subject = 'Thank you for registering to our site'
     message = ' it  means a world to us '
     email_from = settings.EMAIL_HOST_USER
-    recipient_list = ['',]
+    recipient_list = ['uu',]
     send_mail( subject, message, email_from, recipient_list )
     return render(request,'homepage.html')
 

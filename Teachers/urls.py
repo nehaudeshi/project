@@ -7,7 +7,7 @@ from .import  views
 app_name="Teachers"
 
 urlpatterns=[
-    url(r'^mainprofile',views.mainprofile,name="mainprofile"),
+    path('mainprofile',views.mainprofile,name="mainprofile"),
     url(r'^editprofile',views.editprofile,name="editprofile"),
 
 ]
