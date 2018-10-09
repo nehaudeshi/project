@@ -1,23 +1,27 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DJ CONNECT</title>
+	<title>	Dwarkadas J. Sanghvi College of Engineering</title>
+	<link rel="icon" type="image/ico" href="logo1.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<style type="text/css">
-		.col1,.col2,.col3,.col4 {
+	
+	body{
+		background-image: linear-gradient(to top, #42a7f4, #00c4fd, #00dbd5, #00e987, #a8eb12);
+	}	
+
+	.col1,.col2,.col3,.col4 {
 		background: #F2F2F2;
 		text-align: center;
-		padding-bottom: 30px;
+		padding-bottom: 10px;
 	}
 	.col1 h4,.col2 h4,.col3 h4 {
 		color:grey;
 	}
-
 	#section1 {
-		background:url("https://images.unsplash.com/photo-1491747677313-84f7c8e10cc6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fd231a8eed81b26dcbb19f798db57340&auto=format&fit=crop&w=1950&q=80");
-		color:white;
+		/*background:url("https://images.unsplash.com/photo-1536140288515-e048003af363?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=00aba3b2a1824c1f8d5910a9ecc573ef&auto=format&fit=crop&w=1970&q=80");*/
+		color:#86A8E7;
 		text-align: center;
 		padding-top: 150px;
 		padding-bottom: 290px;
@@ -26,9 +30,18 @@
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
+	.but_home{
+		    width: 125px;
+/*    		background-color: #337ab7;*/
+			background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    		margin-right: 20px;
+			box-shadow: 0px 1px 20px 3px rgb(67, 64, 108);
+    		border-radius: 60px;
+    		border: 1px solid #1d67a5;
+	}
 
 	#section2{
-		padding-top: 100px;
+		padding-top: 50px;
 	}
 	#section2 .col1 h4{
 		color:green;
@@ -36,16 +49,12 @@
 	#section2 .col2 h4{
 		color:blue;
 	}
-
-
 	#section3 {
-		padding-top: 100px;
-		margin-bottom: 100px;
+		padding: 100px;
 	}
-	#section3 .col1, #section3 .col2{
-		height: 515.2px;
+	#section3 .card{
+		min-height:690px;
 	}
-
 
 	#section4 {
 		background:url("https://images.unsplash.com/photo-1491747677313-84f7c8e10cc6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fd231a8eed81b26dcbb19f798db57340&auto=format&fit=crop&w=1950&q=80");
@@ -58,13 +67,10 @@
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
-
 	.fas{
 		margin-right:10px;
 	}
-
 	/* Modal */
-
 	.dropbtn {
 	    background-color: #4CAF50;
 	    color: white;
@@ -72,7 +78,6 @@
 	    font-size: 16px;
 	    border: none;
 	}
-
 	.resetbtn
 	{
 	    background-color: #4CAF50;
@@ -81,18 +86,14 @@
 	    font-size: 16px;
 	    border: none;
 	}
-
 	.intarea
 	{
 	    padding: 5px;
 	}
-
-
 	.dropdown {
 	    position: relative;
 	    display: inline-block;
 	}
-
 	.dropdown-content {
 	    display: none;
 	    position: absolute;
@@ -101,19 +102,16 @@
 	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	    z-index: 1;
 	}
-
 	.dropdown-content a {
 	    color: black;
 	    padding: 12px 16px;
 	    text-decoration: none;
 	    display: block;
 	}
-
 	input[type="text"]{
 	    width:250px;
 	    color: black;
 	}
-
 	.box{
 	    margin-left: 38%;
 	    margin-right: 38%;
@@ -121,15 +119,10 @@
 	    margin-top:10%;
 	    border:2px solid black;
 	}
-
 	.dropdown-content a:hover {background-color: #ddd;}
-
 	.dropdown:hover .dropdown-content {display: block;}
-
 	.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
 	body {font-family: Arial, Helvetica, sans-serif;}
-
 	input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -138,7 +131,6 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 	}
-
 	/* Set a style for all buttons */
 	button {
 	    background-color: #4CAF50;
@@ -149,11 +141,9 @@
 	    cursor: pointer;
 	    width: 100%;
 	}
-
 	button:hover {
 	    opacity: 0.8;
 	}
-
 	/* Extra styles for the cancel button */
 	.cancelbtn {
 	    width: auto;
@@ -161,36 +151,29 @@
 	    background-color: #f44336;
 	    float: left;
 	}
-
 	/* Center the image and position the close button */
 	.imgcontainer {
 	    text-align: center;
 	    margin: 24px 0 12px 0;
 	    position: relative;
 	}
-
 	img.avatar {
 	    width: 40%;
 	    border-radius: 50%;
 	}
-
 	.container {
 	    padding: 16px;
 	}
-
 	span.psw {
 	    float: right;
 	    padding-top: 16px;
 	}
-
 	b{
 		color: black;
 	}
-
 	label{
 		float: left;
 	}
-
 	/* The Modal (background) */
 	.modal {
 	    display: none; /* Hidden by default */
@@ -205,7 +188,6 @@
 	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	    padding-top: 60px;
 	}
-
 	/* Modal Content/Box */
 	.modal-content {
 	    background-color: #fefefe;
@@ -213,7 +195,6 @@
 	    border: 1px solid #888;
 	    width: 80%; /* Could be more or less, depending on screen size */
 	}
-
 	/* The Close Button (x) */
 	.close {
 	    position: absolute;
@@ -223,29 +204,24 @@
 	    font-size: 35px;
 	    font-weight: bold;
 	}
-
 	.close:hover,
 	.close:focus {
 	    color: red;
 	    cursor: pointer;
 	}
-
 	/* Add Zoom Animation */
 	.animate {
 	    -webkit-animation: animatezoom 0.6s;
 	    animation: animatezoom 0.6s
 	}
-
 	@-webkit-keyframes animatezoom {
 	    from {-webkit-transform: scale(0)}
 	    to {-webkit-transform: scale(1)}
 	}
-
 	@keyframes animatezoom {
 	    from {transform: scale(0)}
 	    to {transform: scale(1)}
 	}
-
 	/* Change styles for span and cancel button on extra small screens */
 	@media screen and (max-width: 300px) {
 	    span.psw {
@@ -256,20 +232,40 @@
 	       width: 100%;
 	    }
 	}
+	
+	.card{
+		border-radius: 10px;
+		margin-bottom: 20px;
+	}
+
+	.card img{
+		height: 90%;
+		width: 90%;
+		margin-top: 20px;
+		box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	}
+	.card:hover{
+		box-shadow: 0px 0px 50px 11px rgba(218,220,224,1);
+	}
+	.description{
+		padding: 10px;
+	}
+	#section2 img{
+		max-width:323.39px;
+		max-height: 161.69px;
+	}
 
 
 	</style>
 	<script>
 		// Get the modal
 		var modal = document.getElementById('id01');
-
 		// When the user clicks anywhere outside of the modal, close it
 		document.onclick = function(event) {
 		    if (event.target == modal) {
 		        modal.style.display = "none";
 		    }
 		}
-
 	</script>
 </head>
 <body>
@@ -279,7 +275,7 @@
 	  	<h1 style="font-size: 100px">DJ CONNECT</h1>
 	  	<h4 style="font-size:30px">Tagline</h4>
 	  	<br>
-	  	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color: #337ab7; margin-right: 20px;"><i class="fas fa-users"></i>Login</button>
+	  	<button class="but_home" onclick="document.getElementById('id01').style.display='block'"><i class="fas fa-users"></i>Login</button>
 		<div id="id01" class="modal">
 
 
@@ -305,7 +301,7 @@
 	    		</div>
 	  		</form>
 		</div>
-		<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; background-color: #337ab7; margin-right: 20px;"><i class="fas fa-user-plus"></i>Register</button>
+		<button class="but_home" onclick="document.getElementById('id02').style.display='block'" ><i class="fas fa-user-plus"></i>Register</button>
 		<div id="id02" class="modal">
 	  		<form class="modal-content animate" method="post" >{% csrf_token %}
 
@@ -347,47 +343,54 @@
 </div>
 <div class="container" id="section2">
 	<div class="row">
-  		<div class="col-xs-6 col-sm-4">
-  			<div class="col1">
-  				<img src="http://www.free-css.com/assets/files/free-css-templates/preview/page196/conquer/assets/img/1-1.jpg">
-	  			<h4>Bootstrap v3.3.6</h4>
-	  			<p>Morbi sagittis justo a velit placerat ullamcorper quis quis velit. Sed convallis at risus ullamcorper auctor. Praesent quis velit neque. Quisque semper porta nisi vitae suscipit. Duis lectus magna, ornare ac scelerisque.</p>
+  		<div class="col-xs-12 col-sm-4">
+  			<div class="col1 card">
+  				<img src="https://www.careerattraction.com/wp-content/uploads/2013/08/Intentional-Networking.jpg">
+  				<div class="description">
+	  					<h4>CONNECT.</h4>
+	  			</div>
 	  		</div>
   		</div>
-  		<div class=" col-xs-6 col-sm-4">
-  			<div class="col2">
-  				<img src="http://www.free-css.com/assets/files/free-css-templates/preview/page196/conquer/assets/img/1-2.jpg">
-	  			<h4>Responsive Design</h4>
-	  			<p>Conquer Template is provided by templatemo for free of charge. You can use this template for any kind of website. No credit link is required. All images by Unsplash. Thank you for visiting our website. Please come again!</p>
+  		<div class=" col-xs-12 col-sm-4">
+  			<div class="col2 card">
+  				<img src="https://www.springboard.com/blog/wp-content/uploads/2014/09/Selection_063.png">
+  				<div class="description">
+	  				<h4>LEARN.</h4>
+	  			</div>
 	  		</div>
   		</div>
-  		<div class="col-xs-6 col-sm-4">
-  			<div class="col3">
-  				<img src="http://www.free-css.com/assets/files/free-css-templates/preview/page196/conquer/assets/img/1-3.jpg">
-	  			<h4>Parallax Layout</h4>
-	  			<p>Morbi sagittis justo a velit placerat ullamcorper quis quis velit. Sed convallis at risus ullamcorper auctor. Praesent quis velit neque. Quisque semper porta nisi vitae suscipit. Duis lectus magna, ornare ac scelerisque.</p>
+  		<div class="col-xs-12 col-sm-4">
+  			<div class="col3 card">
+  				<img src="https://i0.wp.com/www.cuningham.com/wp-content/uploads/2017/02/leadership-01.jpg?fit=1200%2C758&ssl=1">
+	  			<div class="description">
+	  				<h4>INSPIRE.</h4>
+	  			</div>
 	  		</div>
   		</div>
 	</div>
 </div>
-<div class="container" id="section3">
+<div id="section3">
 	<div class="row">
   		<div class="col col-xs-12 col-sm-6">
-  			<div class="col1">
-	  			<img src="http://www.free-css.com/assets/files/free-css-templates/preview/page196/conquer/assets/img/2-1.jpg">
-	  			<h4>Two Column Left Side</h4>
-	  			<br>
-	  			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor eros eget eros maximus, ut cursus sem euismod. Donec iaculis tristique odio at consectetur. Nullam dignissim varius suscipit. Sed in leo sit amet velit finibus pretium.</p>
-				<p>Vestibulum vel mauris at erat mattis accumsan et ac lorem. Cras non venenatis orci, sed tincidunt massa. Duis nisl lectus, auctor eu sodales at, dignissim eu orci. Sed vitae venenatis magna, in blandit metus.</p>
+  			<div class="col1 card">
+	  			<img src="https://content3.jdmagicbox.com/comp/mumbai/n8/022pxx22.xx22.090525131101.r6n8/catalogue/svkm-international-school-vile-parle-west-mumbai-schools-1trm116.jpg">
+	  			<div class="description">
+	  				<h4>About SVKM</h4>
+	  				<br>
+	  				<p>Shri Vile Parle Kelavani Mandal is a Public Charitable Trust registered under the Society’s Registration Act and Bombay Public Trust Act. From its humble beginnings in 1934, when it took over the Rashtriya Shala, a school established in 1921 in the wake of the National Movement, the Mandal today has grown into a big educational complex imparting high-level education to more than 35,000 students.</p>
+	  				<p>From its beginning with the Swadeshi Movement, the Mandal has now grown into an educational foundation promoting global thinking consistent with national interest and promoting the values, professionalism, social sensitivity and dynamic entrepreneurship. </p>
+				</div>
 			</div>
   		</div>
   		<div class="col-xs-12 col-sm-6">
-  			<div class="col2">
-	  			<img src="http://www.free-css.com/assets/files/free-css-templates/preview/page196/conquer/assets/img/2-2.jpg">
-	  			<h4>Two Column Right Side</h4>
-	  			<br>
-	  			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor eros eget eros maximus, ut cursus sem euismod. Donec iaculis tristique odio at consectetur. Nullam dignissim varius suscipit. Sed in leo sit amet velit finibus pretium.</p>
-				<p>Vestibulum vel mauris at erat mattis accumsan et ac lorem. Cras non venenatis orci, sed tincidunt massa. Duis nisl lectus, auctor eu sodales at, dignissim eu orci. Sed vitae venenatis magna, in blandit metus.</p>
+  			<div class="col2 card">
+	  			<img src="https://schoolbook.getmyuni.com/assets/images/rev_img/39892__2795/1497531175IMG_7062.JPG">
+	  			<div class="description">
+	  				<h4>About DJSCE</h4>
+	  				<br>
+	  				<p>Shri Vile Parle Kelavani Mandal’s (SVKM) Dwarkadas J. Sanghvi College of Engineering (DJSCE), was established in the year 1994. In the span of 23 years, DJSCE has come a long way and has made its impact felt not only in the country, but also abroad. The college runs 8 undergraduate programmes, 3 post graduate programmes and 3 Ph. D courses, affiliated to the University of Mumbai. All the programs are accredited by National Board of Accreditation. </p>
+	  				<p>Our students have performed exceedingly well in national and globally competent multinational companies and also in the universities in India and abroad as they pursue their higher education.</p>
+				</div>
 			</div>
   		</div>
 	</div>
